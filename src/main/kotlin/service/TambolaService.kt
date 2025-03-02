@@ -19,6 +19,3 @@ class TambolaService {
     }
 
 }
-
-//https://github1s.com/MayankAgrawal94/tambola-game/blob/HEAD/app/claimValidator.js
-//https://github1s.com/Sathiyaraman-M/TambolaValidator/blob/HEAD/tambola-claim-validator/src/main/kotlin/Main.kt#L7
