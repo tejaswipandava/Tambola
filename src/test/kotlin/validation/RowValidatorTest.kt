@@ -2,7 +2,6 @@ package validation
 
 import Helper.ClaimHelper
 import exception.InvalidDataException
-import model.Ticket
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -23,7 +22,7 @@ class RowValidatorTest {
     fun `should throw an error when claim is invalid`() {
         val expectedError = "invalid claim"
         val ticket = claimHelper.generateTicket()
-        val announcedNumber = listOf(1, 2, 3, 4, 5)
+        val announcedNumber = setOf(1, 2, 3, 4, 5)
         val claim = "full House"
 
         val exception = assertFailsWith<InvalidDataException> {
@@ -35,7 +34,7 @@ class RowValidatorTest {
     @Test
     fun `should return true when top row claim is valid`() {
         val ticket = claimHelper.generateTicket()
-        val announcedNumber = listOf(1, 2, 3, 4, 5)
+        val announcedNumber = setOf(1, 2, 3, 4, 5)
         val claim = "Top Row"
 
         val response = rowValidator.validate(ticket, announcedNumber, claim)
@@ -46,7 +45,7 @@ class RowValidatorTest {
     @Test
     fun `should return true when middle row claim is valid`() {
         val ticket = claimHelper.generateTicket()
-        val announcedNumber = listOf(6, 7, 8, 9, 10)
+        val announcedNumber = setOf(6, 7, 8, 9, 10)
         val claim = "middle Row"
 
         val response = rowValidator.validate(ticket, announcedNumber, claim)
@@ -57,7 +56,7 @@ class RowValidatorTest {
     @Test
     fun `should return false when top row claim is invalid`() {
         val ticket = claimHelper.generateTicket()
-        val announcedNumber = listOf(1, 2, 3, 4, 5, 6)
+        val announcedNumber = setOf(1, 2, 3, 4, 5, 6)
         val claim = "Top Row"
 
         val response = rowValidator.validate(ticket, announcedNumber, claim)

@@ -22,7 +22,7 @@ class FirstFiveValidatorTest {
     fun `should throw error when claim is not full house`() {
         val expectedError = "invalid claim"
         val ticket = claimHelper.generateTicket()
-        val announcedNumber = listOf(1, 2, 3, 4, 5)
+        val announcedNumber = setOf(1, 2, 3, 4, 5)
         val claim = "EarlyFive"
 
         val exception = assertFailsWith<InvalidDataException> {
@@ -34,7 +34,7 @@ class FirstFiveValidatorTest {
     @Test
     fun `should return true when claim is valid`() {
         val ticket = claimHelper.generateTicket()
-        val announcedNumber = listOf(1, 3, 7, 12, 15)
+        val announcedNumber = setOf(1, 3, 7, 12, 15)
         val claim = "Early Five"
 
         val response = firstFiveValidator.validate(ticket, announcedNumber, claim)
@@ -44,7 +44,7 @@ class FirstFiveValidatorTest {
     @Test
     fun `should return false when claim is invalid`() {
         val ticket = claimHelper.generateTicket()
-        val announcedNumber = listOf(1, 2, 3, 4, 5, 6)
+        val announcedNumber = setOf(1, 2, 3, 4, 5, 6)
         val claim = "Early Five"
 
         val response = firstFiveValidator.validate(ticket, announcedNumber, claim)
