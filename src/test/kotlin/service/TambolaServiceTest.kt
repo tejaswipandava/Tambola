@@ -46,7 +46,7 @@ class TambolaServiceTest {
         val response = tambolaService.claim(ticket, announcedNumber, claim)
 
         verify(exactly = 1) { anyConstructed<RowValidator>().validate(ticket, announcedNumber, claim) }
-        assertTrue(response)
+        assertEquals("accepted", response)
     }
 
     @Test
@@ -57,7 +57,7 @@ class TambolaServiceTest {
 
         val response = tambolaService.claim(ticket, announcedNumber, claim)
 
-        assertFalse(response)
+        assertEquals("rejected", response)
     }
 
     @Test
@@ -68,7 +68,7 @@ class TambolaServiceTest {
 
         val response = tambolaService.claim(ticket, announcedNumber, claim)
 
-        assertTrue(response)
+        assertEquals("accepted", response)
     }
 
     @Test
@@ -80,7 +80,7 @@ class TambolaServiceTest {
 
         val response = tambolaService.claim(ticket, announcedNumber, claim)
 
-        assertFalse(response)
+        assertEquals("rejected", response)
     }
 
     @Test
@@ -91,7 +91,7 @@ class TambolaServiceTest {
 
         val response = tambolaService.claim(ticket, announcedNumber, claim)
 
-        assertTrue(response)
+        assertEquals("accepted", response)
     }
 
     @Test
@@ -103,6 +103,6 @@ class TambolaServiceTest {
 
         val response = tambolaService.claim(ticket, announcedNumber, claim)
 
-        assertFalse(response)
+        assertEquals("rejected", response)
     }
 }
