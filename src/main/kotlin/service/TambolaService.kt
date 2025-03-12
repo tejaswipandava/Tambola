@@ -17,5 +17,4 @@ class TambolaService {
         }
         return if (claimValidator.validate(ticket, announcedNumber, claim)) "accepted" else "rejected"
     }
-
 }
